@@ -4,7 +4,7 @@ Submitted by: Melissa Gaines
 
 Wordle Pt. 1 Starter is an app that gives you six attempts to guess the target word correctly. With each attempt hints are provided in the form of color-coded box indicating which each letter is in the target word and/or if the letter is in the correct position.
 
-Time spent: 5 hours spent in total
+Time spent: 6 hours spent in total
 
 ## Required Features
 
@@ -25,14 +25,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
+Here's a walkthrough of implemented user stories:
 
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
-
-
-## Notes
-
-Describe any challenges encountered while building the app.
+<img src='https://i.imgur.com/lXHVTD2.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## License
 
