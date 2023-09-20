@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented feature:
 
-<img src='https://i.imgur.com/BpaJcBB.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/JyYGAcC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## License
 
