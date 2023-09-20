@@ -25,9 +25,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented feature:
 
-<img src='https://i.imgur.com/lXHVTD2.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/JyYGAcC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## License
 
