@@ -93,7 +93,11 @@ class BoardController: NSObject,
   // to check the before/after value of goalWord and see if it changes to the correct theme
   private func applyThemeSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
-    // ...
+      if let rawTheme = settings[kWordThemeKey] as? String, // same as we've been doing before
+      let theme = WordTheme(rawValue: rawTheme) {
+        // assign goalWord
+          goalWord = WordGenerator.generateGoalWord(with: theme)
+      }
     // END YOUR CODE HERE
   }
   
@@ -103,7 +107,10 @@ class BoardController: NSObject,
   // Checkpoint: Correctly implementing this function should change the goal word each time the user inputs an entire row of letters
   private func applyIsAlienWordleSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
-    // ...
+      if let alienWord = settings[kIsAlienWordleKey] as? Bool {
+        // Assign numItemsPerRow to be equal to numLetters
+          isAlienWordle = alienWord
+      }
     // START YOUR CODE HERE
   }
 }
