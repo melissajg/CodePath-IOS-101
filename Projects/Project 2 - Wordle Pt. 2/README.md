@@ -25,11 +25,10 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
-<img src='https://i.imgur.com/11ZTgJ7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+![](https://i.imgur.com/11ZTgJ7.gif)
 ## Notes
 
-Describe any challenges encountered while building the app.
+None.
 
 ## License
 
