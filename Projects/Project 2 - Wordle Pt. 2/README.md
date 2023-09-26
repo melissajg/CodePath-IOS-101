@@ -25,10 +25,12 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
- <img src="https://i.imgur.com/11ZTgJ7.gif"/>
+
+ https://i.imgur.com/11ZTgJ7.gif
+ 
 ## Notes
 
-None.
+Link to GIF works but had trouble displaying the animted GIF in the README file.
 
 ## License
 
