@@ -30,7 +30,7 @@ https://i.imgur.com/11ZTgJ7.gif
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Link to GIF works but had trouble displaying the animted GIF in the README file.
 
 ## License
 
