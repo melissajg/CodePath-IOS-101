@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 struct GameData {
     let categoryCode: CategoryCode
 
@@ -77,3 +78,4 @@ enum CategoryCode {
         }
     }
 }
+

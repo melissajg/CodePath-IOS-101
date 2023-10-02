@@ -21,8 +21,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answerButtonB: UIButton!
     @IBOutlet weak var answerButtonC: UIButton!
     @IBOutlet weak var answerButtonD: UIButton!
-    // Function override for the view controller
-    // This is fired when the view has finished loading for the first time
     override func viewDidLoad() {
         // Some functions require you to call the super class implementation
         // Always read the online documentation to know if you need to
