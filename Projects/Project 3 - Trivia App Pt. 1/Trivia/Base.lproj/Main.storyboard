@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,28 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CGI-f3-5jX">
-                                <rect key="frame" x="83.000000000000014" y="119" width="227.33333333333337" height="80"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y7C-QC-WpV">
-                                        <rect key="frame" x="0.0" y="-2.3333333333333286" width="80" height="85"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="UMy-Ke-Ubh"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="XCp-Qb-dhO"/>
-                                            <constraint firstAttribute="width" constant="80" id="leI-bW-xv6"/>
-                                        </constraints>
-                                        <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="large"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-nd-lvk">
-                                        <rect key="frame" x="100" y="0.0" width="127.33333333333331" height="80"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-Qk-EPp">
-                                <rect key="frame" x="186.66666666666666" y="219" width="20" height="96"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-nd-lvk">
+                                <rect key="frame" x="120" y="101" width="153" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-Qk-EPp">
+                                <rect key="frame" x="186" y="200" width="20" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="RTg-GA-kcc"/>
                                 </constraints>
@@ -88,8 +74,8 @@
                                 </subviews>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Question String " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YU-99-VuM">
-                                <rect key="frame" x="106" y="383" width="180" height="31.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Question " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YU-99-VuM">
+                                <rect key="frame" x="106" y="321" width="180" height="32"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -104,10 +90,7 @@
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="OYt-b8-vmE" firstAttribute="top" secondItem="yWj-bU-RJe" secondAttribute="top" constant="545" id="2C3-cE-TsP"/>
-                            <constraint firstItem="yWj-bU-RJe" firstAttribute="bottom" secondItem="CGI-f3-5jX" secondAttribute="bottom" constant="679" id="AYM-mJ-yrk"/>
                             <constraint firstItem="IY6-Qk-EPp" firstAttribute="top" secondItem="TCN-xk-aCu" secondAttribute="topMargin" constant="160" id="NKK-nK-xmJ"/>
-                            <constraint firstItem="CGI-f3-5jX" firstAttribute="centerX" secondItem="TCN-xk-aCu" secondAttribute="centerX" id="QGD-b3-GGM"/>
-                            <constraint firstItem="CGI-f3-5jX" firstAttribute="top" secondItem="yWj-bU-RJe" secondAttribute="top" constant="60" id="WAm-QP-zJe"/>
                             <constraint firstAttribute="bottomMargin" secondItem="9YU-99-VuM" secondAttribute="bottom" constant="400" id="Wz1-2T-392"/>
                             <constraint firstItem="OYt-b8-vmE" firstAttribute="centerX" secondItem="TCN-xk-aCu" secondAttribute="centerX" id="d8s-Xi-Z3w"/>
                             <constraint firstAttribute="bottomMargin" secondItem="IY6-Qk-EPp" secondAttribute="bottom" constant="563" id="hAb-a2-jhr"/>
@@ -121,7 +104,6 @@
                         <outlet property="answerButtonB" destination="wpv-vF-qHp" id="cao-TD-H9T"/>
                         <outlet property="answerButtonC" destination="876-e0-omd" id="maw-lY-cUw"/>
                         <outlet property="answerButtonD" destination="cB6-2P-WQV" id="nEJ-nh-Tav"/>
-                        <outlet property="categoryIcon" destination="Y7C-QC-WpV" id="woA-1V-qT4"/>
                         <outlet property="categoryName" destination="TqF-nd-lvk" id="FKY-lX-lG2"/>
                         <outlet property="questionLabel" destination="9YU-99-VuM" id="KhC-eu-aZC"/>
                         <outlet property="questionNum" destination="IY6-Qk-EPp" id="OYP-u3-5jS"/>
@@ -133,7 +115,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
