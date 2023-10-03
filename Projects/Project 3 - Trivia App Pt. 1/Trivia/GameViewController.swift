@@ -2,23 +2,21 @@
 //  GameViewController.swift
 //  Trivia
 //
-//  Created by Melissa Gaines on 10/1/23.
+//  Created by Melissa Gaines on 10/2/23.
 //
 
-// Import the UIKit framework
-// You're almost always going to need this when your referencing UI elements in your file
 import UIKit
 
-// Class declaration, including the name of the class and its subclass (UIViewController)
 class GameViewController: UIViewController {
-    @IBOutlet weak var categoryIcon: UIImageView!
-    @IBOutlet weak var categoryName: UILabel!
-    
+
+    @IBOutlet weak var questionNumLeft: UILabel!
     @IBOutlet weak var questionNum: UILabel!
+    
+    @IBOutlet weak var categoryName: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     
-    @IBOutlet weak var answerButtonA: UIButton!
     
+    @IBOutlet weak var answerButtonA: UIButton!
     @IBOutlet weak var answerButtonB: UIButton!
     @IBOutlet weak var answerButtonC: UIButton!
     @IBOutlet weak var answerButtonD: UIButton!
@@ -30,7 +28,6 @@ class GameViewController: UIViewController {
         // Always read the online documentation to know if you need to
         super.viewDidLoad()
         triviaQuestion = createMockData()
-        //let fakeData = GameData(categoryCode: .music)
         configure(with: triviaQuestion[selectedTriviaIndex])
     }
     // Returns an array of fake WeatherForecast data models to show
@@ -39,11 +36,14 @@ class GameViewController: UIViewController {
         let mockData1 = GameData(categoryCode: .music)
         let mockData2 = GameData(categoryCode: .science)
         let mockData3 = GameData(categoryCode: .math)
-        return [mockData1, mockData2, mockData3]
+        let mockData4 = GameData(categoryCode: .history)
+        let mockData5 = GameData(categoryCode: .geography)
+        return [mockData1, mockData2, mockData3, mockData4, mockData5]
     }
     private func configure(with game: GameData) {
         categoryName.text = game.categoryCode.category
         questionNum.text = String(selectedTriviaIndex+1)
+        questionNumLeft.text = String(triviaQuestion.count - (selectedTriviaIndex+1))
         questionLabel.text = game.categoryCode.question
         
         answerButtonA.setTitle(game.categoryCode.answerA, for: .normal)
@@ -70,15 +70,5 @@ class GameViewController: UIViewController {
             configure(with: triviaQuestion[selectedTriviaIndex]) // change the forecast shown in the UI
         }
     }
+
 }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-

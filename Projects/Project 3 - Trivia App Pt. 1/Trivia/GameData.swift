@@ -2,7 +2,7 @@
 //  GameData.swift
 //  Trivia
 //
-//  Created by Melissa Gaines on 10/1/23.
+//  Created by Melissa Gaines on 10/2/23.
 //
 
 import Foundation
@@ -107,4 +107,3 @@ enum CategoryCode {
     }
 
 }
-
