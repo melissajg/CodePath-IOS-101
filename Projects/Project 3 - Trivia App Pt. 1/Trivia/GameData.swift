@@ -16,11 +16,9 @@ enum CategoryCode {
     case history
     case music
     case geography
-    case sports
-    case film
     case science
     case math
-    
+
     var category: String {
         switch self {
         case .history:
@@ -29,10 +27,6 @@ enum CategoryCode {
             return "Music"
         case .geography:
             return "Geography"
-        case .sports:
-            return "Sports"
-        case .film:
-            return "Film"
         case .science:
             return "Science"
         case .math:
@@ -43,21 +37,73 @@ enum CategoryCode {
     var question: String {
         switch self {
         case .history:
-            return "Who invent peanut butter?"
+            return "Who invent peanut butter?" // Correct Answer - A. Marcellus Gilmore Edson
         case .music:
-            return "Who wrote 'I Will Always Love You'?"
+            return "Who wrote 'I Will Always Love You'?" //Correct Answer - B. Dolly Parton
         case .geography:
-            return "How many countentients are there?"
-        case .sports:
-            return "football"
-        case .film:
-            return "film"
+            return "How many countentients are there?" // Correct Answer - C. 7
         case .science:
-            return "science"
+            return "What is the powerhouse of the cell?" // Correct Answer - D. Mitochondrie
         case .math:
-            return "math"
+            return "10+9?" // Correct Answer - A. 21
         }
         
+    }
+    var answerA: String {
+        switch self {
+        case .history:
+            return "Marcellus Gilmore Edson" // Correct Answer
+        case .music:
+            return "Beyonce"
+        case .geography:
+            return "3"
+        case .science:
+            return "Cell wall"
+        case .math:
+            return "21" // Correct Answer
+        }
+    }
+    var answerB: String {
+        switch self {
+        case .history:
+            return "George Washington"
+        case .music:
+            return "Dolly Parton" // Correct Answer
+        case .geography:
+            return "8"
+        case .science:
+            return "Organelle"
+        case .math:
+            return "19"
+        }
+    }
+    var answerC: String {
+        switch self {
+        case .history:
+            return "Henrietta Lacks"
+        case .music:
+            return "Lucy Thomas"
+        case .geography:
+            return "7" // Correct Answer
+        case .science:
+            return "Cellulose"
+        case .math:
+            return "4"
+        }
+    }
+    var answerD: String {
+        switch self {
+        case .history:
+            return "Madam C. J. Walker"
+        case .music:
+            return "Dave Fenley"
+        case .geography:
+            return "3"
+        case .science:
+            return "Mitochondria" // Correct Answer
+        case .math:
+            return "100"
+        }
     }
     var image: UIImage? {
         switch self {
@@ -67,10 +113,6 @@ enum CategoryCode {
             return UIImage(named: "music-note")
         case .geography:
             return UIImage(named: "globe")
-        case .sports:
-            return UIImage(named: "football")
-        case .film:
-            return UIImage(named: "film-strip")
         case .science:
             return UIImage(named: "beaker")
         case .math:
