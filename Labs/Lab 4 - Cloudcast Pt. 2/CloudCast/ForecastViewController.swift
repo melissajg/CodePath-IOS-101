@@ -42,14 +42,7 @@ class ForecastViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    private func changeLocation(withLocationIndex locationIndex: Int) {
-        guard locationIndex < locations.count else { return }
-        let location = locations[locationIndex]
-        locationLabel.text = location.name
-        WeatherForecastService.fetchForecast(latitude: location.latitude, longitude: location.longitude) { forecast in
-                self.configure(with: forecast)
-            }
-    }
+    
     @IBAction func didTapBackButton(_ sender: UIButton) {
         selectedLocationIndex = max(0, selectedLocationIndex - 1) // make sure selectedLocationIndex is always >= 0
         changeLocation(withLocationIndex: selectedLocationIndex)
@@ -57,6 +50,14 @@ class ForecastViewController: UIViewController {
     @IBAction func didTapForwardButton(_ sender: UIButton) {
         selectedLocationIndex = min(locations.count - 1, selectedLocationIndex + 1) // make sure selectedLocationIndex is always < locations.count
         changeLocation(withLocationIndex: selectedLocationIndex)
+    }
+    private func changeLocation(withLocationIndex locationIndex: Int) {
+        guard locationIndex < locations.count else { return }
+        let location = locations[locationIndex]
+        locationLabel.text = location.name
+        WeatherForecastService.fetchForecast(latitude: location.latitude, longitude: location.longitude) { forecast in
+                self.configure(with: forecast)
+            }
     }
     private func configure(with forecast: CurrentWeatherForecast) {
         forecastImageView.image = forecast.weatherCode.image

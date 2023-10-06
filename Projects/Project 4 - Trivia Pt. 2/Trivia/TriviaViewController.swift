@@ -7,10 +7,7 @@
 
 import UIKit
 struct Question {
-    let category : String
-    let question: String
-    let correctAnswer: String
-    let incorrectAnswers: [String]
+    let amount : Int
 }
 class TriviaViewController: UIViewController {
   
@@ -32,26 +29,14 @@ class TriviaViewController: UIViewController {
     addGradient()
     questionContainerView.layer.cornerRadius = 8.0
     // TODO: FETCH TRIVIA QUESTIONS HERE
-      let politics = Question(category: "Politics",
-                             question: "Who da British Prime Minister at the outbreak of the Second World War?",
-                             correctAnswer: "Neville Chamberlain",
-                             incorrectAnswers: [
-                                 "Clement Attlee",
-                                 "Winston Churchill",
-                                 "Stanley Baldwin"
-                             ])
-      let animals = Question(category: "Animals",
-                            question: "A bear does NOT defecate during hibernation. ",
-                            correctAnswer: "True",
-                            incorrectAnswers: [
-                                "False"
-                            ])
- 
-      questions = [animals, politics]
+      let question1 = Question(amount: 1)
+      let question2 = Question(amount: 1)
+      let question3 = Question(amount: 1)
+      questions = [question1,question2,question3]
       
     updateQuestion(withQuestionIndex: 0)
   }
-  
+  /*
   private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
     let question = questions[questionIndex]
@@ -88,10 +73,14 @@ class TriviaViewController: UIViewController {
     }
   }
   
+*/
   private func updateToNextQuestion(answer: String) {
-    if isCorrectAnswer(answer) {
+      numCorrectQuestions += 1
+   /* if isCorrectAnswer(answer) {
       numCorrectQuestions += 1
     }
+    */
+      
     currQuestionIndex += 1
     guard currQuestionIndex < questions.count else {
       showFinalScore()
@@ -99,10 +88,11 @@ class TriviaViewController: UIViewController {
     }
     updateQuestion(withQuestionIndex: currQuestionIndex)
   }
-  
+  /*
   private func isCorrectAnswer(_ answer: String) -> Bool {
     return answer == questions[currQuestionIndex].correctAnswer
   }
+   */
   
   private func showFinalScore() {
     let alertController = UIAlertController(title: "Game over!",
@@ -142,17 +132,49 @@ class TriviaViewController: UIViewController {
   @IBAction func didTapAnswerButton3(_ sender: UIButton) {
     updateToNextQuestion(answer: sender.titleLabel?.text ?? "")
   }
-    /*
-    private func configure(with forecast: CurrentWeatherForecast) {
-        forecastImageView.image = forecast.weatherCode.image
-        descriptionLabel.text = forecast.weatherCode.description
-        temperatureLabel.text = "\(forecast.temperature)"
-        windspeedLabel.text = "\(forecast.windSpeed) mph"
-        windDirectionLabel.text = "\(forecast.windDirection)°"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        dateLabel.text = dateFormatter.string(from: Date())
-    }
-     */
+    
+ private func updateQuestion(withQuestionIndex questionIndex: Int) {
+     guard questionIndex < questions.count else { return }
+     let question = questions[questionIndex]
+     TriviaQuestionService.fetchTrivia(amount: question.amount) { 
+         trivia in self.configure(with: trivia, withQuestionIndex: questionIndex)
+         }
+ }
+ private func configure(with trivia: TriviaQuestion, withQuestionIndex questionIndex: Int) {
+     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
+     let question = questions[questionIndex]
+     questionLabel.text = trivia.question
+     categoryLabel.text = trivia.category
+       // combine array of answers (right and wrong) and shuffle them
+     let answers = ([trivia.correctAnswer] + trivia.incorrectAnswers).shuffled()
+       print(answers.count)
+       
+     // made all the button hidden
+     answerButton0.isHidden = true
+     answerButton1.isHidden = true
+     answerButton2.isHidden = true
+     answerButton3.isHidden = true
+     // if theres atleast one answer show first button
+     if answers.count > 0 {
+       answerButton0.setTitle(answers[0], for: .normal)
+         answerButton0.isHidden = false
+     }
+       // if theres atleast 2 answers show first two buttons
+     if answers.count > 1 {
+       answerButton1.setTitle(answers[1], for: .normal)
+       answerButton1.isHidden = false
+     }
+       // if theres atleast one answer show first three buttons
+     if answers.count > 2 {
+       answerButton2.setTitle(answers[2], for: .normal)
+       answerButton2.isHidden = false
+     }
+       // if theres atleast one answer show all four buttons
+     if answers.count > 3 {
+       answerButton3.setTitle(answers[3], for: .normal)
+       answerButton3.isHidden = false
+     }
+ }
+     
 }
 

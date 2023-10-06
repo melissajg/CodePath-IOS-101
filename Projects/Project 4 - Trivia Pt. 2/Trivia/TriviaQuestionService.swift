@@ -7,12 +7,9 @@
 
 import Foundation
 class TriviaQuestionService {
-    static func fetchTrivia(category : String,
-                            question: String,
-                            correctAnswer: String,
-                            incorrectAnswers: [String],
+    static func fetchTrivia(amount: Int,
                             completion: ((TriviaQuestion) -> Void)? = nil) {
-      //  let parameters = "latitude=\(latitude)&longitude=\(longitude)&current_weather=true&temperature_unit=fahrenheit&timezone=auto&windspeed_unit=mph"
+        let parameters = "amount=\(amount)"
       //      let url = URL(string: "https://api.open-meteo.com/v1/forecast?\(parameters)")!
         let url = URL(string: "https://opentdb.com/api.php?amount=10")!
             // create a data task and pass in the URL
