@@ -20,6 +20,7 @@ class ForecastViewController: UIViewController {
   @IBOutlet weak var windDirectionLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var forecastImageView: UIImageView!
+    
     private var selectedLocationIndex = 0 // keeps track of the current selected location
     private var locations = [Location]() // stores the different locations
     override func viewDidLoad() {

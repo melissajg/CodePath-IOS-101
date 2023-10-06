@@ -27,6 +27,7 @@ class WeatherForecastService {
               assertionFailure("Invalid response status code: \(httpResponse.statusCode)")
               return
             }
+            //let forecast = parse(data: data)
             let decoder = JSONDecoder()
             let response = try! decoder.decode(WeatherAPIResponse.self, from: data)
               DispatchQueue.main.async {
