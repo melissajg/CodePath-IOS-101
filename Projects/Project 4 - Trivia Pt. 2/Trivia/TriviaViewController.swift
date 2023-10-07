@@ -36,44 +36,47 @@ class TriviaViewController: UIViewController {
       
     updateQuestion(withQuestionIndex: 0)
   }
-  /*
-  private func updateQuestion(withQuestionIndex questionIndex: Int) {
-    currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
-    let question = questions[questionIndex]
-    questionLabel.text = question.question
-    categoryLabel.text = question.category
-      // combine array of answers (right and wrong) and shuffle them
-    let answers = ([question.correctAnswer] + question.incorrectAnswers).shuffled()
-      print(answers.count)
-      
-    // made all the button hidden
-    answerButton0.isHidden = true
-    answerButton1.isHidden = true
-    answerButton2.isHidden = true
-    answerButton3.isHidden = true
-    // if theres atleast one answer show first button
-    if answers.count > 0 {
-      answerButton0.setTitle(answers[0], for: .normal)
-        answerButton0.isHidden = false
+    private func updateQuestion(withQuestionIndex questionIndex: Int) {
+        guard questionIndex < questions.count else { return }
+        let question = questions[questionIndex]
+        TriviaQuestionService.fetchTrivia(amount: question.amount) {
+            trivia in self.configure(with: trivia, withQuestionIndex: questionIndex)
+            }
     }
-      // if theres atleast 2 answers show first two buttons
-    if answers.count > 1 {
-      answerButton1.setTitle(answers[1], for: .normal)
-      answerButton1.isHidden = false
+    private func configure(with trivia: TriviaQuestions, withQuestionIndex questionIndex: Int) {
+        currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
+        questionLabel.text = trivia.question
+        categoryLabel.text = trivia.category
+          // combine array of answers (right and wrong) and shuffle them
+        let answers = ([trivia.correct_answer] + trivia.incorrect_answers).shuffled()
+          print(answers.count)
+          
+        // made all the button hidden
+        answerButton0.isHidden = true
+        answerButton1.isHidden = true
+        answerButton2.isHidden = true
+        answerButton3.isHidden = true
+        // if theres atleast one answer show first button
+        if answers.count > 0 {
+          answerButton0.setTitle(answers[0], for: .normal)
+            answerButton0.isHidden = false
+        }
+          // if theres atleast 2 answers show first two buttons
+        if answers.count > 1 {
+          answerButton1.setTitle(answers[1], for: .normal)
+          answerButton1.isHidden = false
+        }
+          // if theres atleast one answer show first three buttons
+        if answers.count > 2 {
+          answerButton2.setTitle(answers[2], for: .normal)
+          answerButton2.isHidden = false
+        }
+          // if theres atleast one answer show all four buttons
+        if answers.count > 3 {
+          answerButton3.setTitle(answers[3], for: .normal)
+          answerButton3.isHidden = false
+        }
     }
-      // if theres atleast one answer show first three buttons
-    if answers.count > 2 {
-      answerButton2.setTitle(answers[2], for: .normal)
-      answerButton2.isHidden = false
-    }
-      // if theres atleast one answer show all four buttons
-    if answers.count > 3 {
-      answerButton3.setTitle(answers[3], for: .normal)
-      answerButton3.isHidden = false
-    }
-  }
-  
-*/
   private func updateToNextQuestion(answer: String) {
       numCorrectQuestions += 1
    /* if isCorrectAnswer(answer) {
@@ -132,49 +135,6 @@ class TriviaViewController: UIViewController {
   @IBAction func didTapAnswerButton3(_ sender: UIButton) {
     updateToNextQuestion(answer: sender.titleLabel?.text ?? "")
   }
-    
- private func updateQuestion(withQuestionIndex questionIndex: Int) {
-     guard questionIndex < questions.count else { return }
-     let question = questions[questionIndex]
-     TriviaQuestionService.fetchTrivia(amount: question.amount) { 
-         trivia in self.configure(with: trivia, withQuestionIndex: questionIndex)
-         }
- }
- private func configure(with trivia: TriviaQuestion, withQuestionIndex questionIndex: Int) {
-     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
-     let question = questions[questionIndex]
-     questionLabel.text = trivia.question
-     categoryLabel.text = trivia.category
-       // combine array of answers (right and wrong) and shuffle them
-     let answers = ([trivia.correctAnswer] + trivia.incorrectAnswers).shuffled()
-       print(answers.count)
-       
-     // made all the button hidden
-     answerButton0.isHidden = true
-     answerButton1.isHidden = true
-     answerButton2.isHidden = true
-     answerButton3.isHidden = true
-     // if theres atleast one answer show first button
-     if answers.count > 0 {
-       answerButton0.setTitle(answers[0], for: .normal)
-         answerButton0.isHidden = false
-     }
-       // if theres atleast 2 answers show first two buttons
-     if answers.count > 1 {
-       answerButton1.setTitle(answers[1], for: .normal)
-       answerButton1.isHidden = false
-     }
-       // if theres atleast one answer show first three buttons
-     if answers.count > 2 {
-       answerButton2.setTitle(answers[2], for: .normal)
-       answerButton2.isHidden = false
-     }
-       // if theres atleast one answer show all four buttons
-     if answers.count > 3 {
-       answerButton3.setTitle(answers[3], for: .normal)
-       answerButton3.isHidden = false
-     }
- }
      
 }
 

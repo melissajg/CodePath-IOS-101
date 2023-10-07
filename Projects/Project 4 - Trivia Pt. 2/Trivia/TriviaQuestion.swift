@@ -8,12 +8,11 @@
 import Foundation
 
 struct TriviaAPIResponse: Decodable {
-  let currentQuestion: TriviaQuestion
-
+  var results: [TriviaQuestions]
 }
-struct TriviaQuestion: Decodable {
-    let category : String
-    let question: String
-    let correctAnswer: String
-    let incorrectAnswers: [String]
+struct TriviaQuestions: Decodable {
+    var category : String
+    var question: String
+    var correct_answer: String
+    var incorrect_answers: [String]
 }
