@@ -27,10 +27,11 @@ class TriviaQuestionService {
                 assertionFailure("Invalid response status code: \(httpResponse.statusCode)")
                 return
               }
-              let decoder = JSONDecoder()
-              let response = try! decoder.decode(TriviaAPIResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion?(response.results[0])
+              let response = try! JSONDecoder().decode(TriviaAPIResponse.self, from: data)
+                for question in response.results {
+                    DispatchQueue.main.async {
+                        completion?(question)
+                    }
                 }
             }
             task.resume() // resume the task and fire the request
