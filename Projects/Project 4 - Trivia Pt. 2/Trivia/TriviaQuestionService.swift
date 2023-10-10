@@ -7,9 +7,22 @@
 
 import Foundation
 class TriviaQuestionService {
-    static func fetchTrivia(amount: Int,
+    static func fetchTrivia(category: String,
+                            difficulty: String,
+                            amount: Int,
                             completion: ((TriviaQuestion) -> Void)? = nil) {
-        let parameters = "amount=\(amount)"
+       /* if (category == "Randomized" && difficulty == "Randomized") {
+            let parameters = "amount=\(amount)"
+        }
+        else if (category != "Randomized" && difficulty == "Randomized") {
+            let parameters = "amount=\(amount)&category=\(category)"
+        }
+        else if (category == "Randomized" && difficulty != "Randomized") {
+            let parameters = "amount=\(amount)&difficulty=\(difficulty)"
+        }
+        else {
+        */
+        let parameters = "amount=\(amount)&category=\(category)&difficulty=\(difficulty)"
       //      let url = URL(string: "https://api.open-meteo.com/v1/forecast?\(parameters)")!
         let url = URL(string: "https://opentdb.com/api.php?\(parameters)")!
             // create a data task and pass in the URL
@@ -42,15 +55,13 @@ class TriviaQuestionService {
           // transform the data we received into a dictionary [String: Any]
           let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
           let currentQuestion = jsonDictionary["results"] as! [String: Any]
-          // wind speed
           let category = currentQuestion["category"] as! String
-          // wind direction
+          let difficulty = currentQuestion["difficulty"] as! String
           let question = currentQuestion["question"] as! String
-          // temperature
           let correct_answer = currentQuestion["correct_answer"] as! String
-          // weather code
           let incorrect_answers = currentQuestion["incorrect_answers"] as! [String]
           return TriviaQuestion(category: category,
+                                difficulty: difficulty,
                                 question: question,
                                 correct_answer: correct_answer,
                                 incorrect_answers: incorrect_answers)

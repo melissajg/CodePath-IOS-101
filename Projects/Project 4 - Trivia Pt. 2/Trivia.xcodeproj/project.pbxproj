@@ -17,6 +17,7 @@
 		9926AB4529DFAE1500860532 /* TriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB4429DFAE1500860532 /* TriviaUITests.swift */; };
 		9926AB4729DFAE1500860532 /* TriviaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB4629DFAE1500860532 /* TriviaUITestsLaunchTests.swift */; };
 		9926AB5429DFB8FA00860532 /* TriviaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */; };
+		B525C18E2AD4C4540012D334 /* RetrieveUserInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B525C18D2AD4C4540012D334 /* RetrieveUserInput.storyboard */; };
 		B54399832ACD98AC009115CF /* TriviaQuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54399822ACD98AC009115CF /* TriviaQuestionService.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		9926AB4429DFAE1500860532 /* TriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaUITests.swift; sourceTree = "<group>"; };
 		9926AB4629DFAE1500860532 /* TriviaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaQuestion.swift; sourceTree = "<group>"; };
+		B525C18D2AD4C4540012D334 /* RetrieveUserInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RetrieveUserInput.storyboard; sourceTree = "<group>"; };
 		B54399822ACD98AC009115CF /* TriviaQuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaQuestionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				9926AB2729DFAE1400860532 /* TriviaViewController.swift */,
 				9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */,
 				9926AB2929DFAE1400860532 /* Main.storyboard */,
+				B525C18D2AD4C4540012D334 /* RetrieveUserInput.storyboard */,
 				9926AB2C29DFAE1400860532 /* Assets.xcassets */,
 				9926AB2E29DFAE1400860532 /* LaunchScreen.storyboard */,
 				9926AB3129DFAE1400860532 /* Info.plist */,
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B525C18E2AD4C4540012D334 /* RetrieveUserInput.storyboard in Resources */,
 				9926AB3029DFAE1400860532 /* LaunchScreen.storyboard in Resources */,
 				9926AB2D29DFAE1400860532 /* Assets.xcassets in Resources */,
 				9926AB2B29DFAE1400860532 /* Main.storyboard in Resources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 class TriviaViewController: UIViewController {
-  
+
   @IBOutlet weak var currentQuestionNumberLabel: UILabel!
   @IBOutlet weak var questionContainerView: UIView!
   @IBOutlet weak var questionLabel: UILabel!
@@ -17,7 +17,7 @@ class TriviaViewController: UIViewController {
   @IBOutlet weak var answerButton1: UIButton!
   @IBOutlet weak var answerButton2: UIButton!
   @IBOutlet weak var answerButton3: UIButton!
-    private var correctAnswersList: [String] = []
+    public var correctAnswersList: [String] = []
     private var questionAmount: Int = 5
   private var currQuestionIndex: Int = 0
   private var numCorrectQuestions: Int = 0
@@ -27,12 +27,19 @@ class TriviaViewController: UIViewController {
     addGradient()
     questionContainerView.layer.cornerRadius = 8.0
     updateQuestion(withQuestionIndex: 0)
+
   }
     private func updateQuestion(withQuestionIndex questionIndex: Int) {
+        answerButton0.tintColor = UIColor.black
+        answerButton1.tintColor = UIColor.black
+        answerButton2.tintColor = UIColor.black
+        answerButton3.tintColor = UIColor.black
         guard questionIndex < questionAmount else { return }
-        TriviaQuestionService.fetchTrivia(amount: 1) {
+        TriviaQuestionService.fetchTrivia(category: "", difficulty: "", amount: 1) {
             trivia in self.configure(with: trivia, withQuestionIndex: questionIndex)
             }
+    
+        
     }
     private func configure(with trivia: TriviaQuestion, withQuestionIndex questionIndex: Int) {
         currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questionAmount)"
@@ -41,6 +48,7 @@ class TriviaViewController: UIViewController {
           // combine array of answers (right and wrong) and shuffle them
         let answers = ([trivia.correct_answer] + trivia.incorrect_answers).shuffled()
         correctAnswersList.append(trivia.correct_answer)
+        print(correctAnswersList)
         // made all the button hidden
         answerButton0.isHidden = true
         answerButton1.isHidden = true
@@ -69,46 +77,26 @@ class TriviaViewController: UIViewController {
         
     }
 
-    private func fixEntityCodes(with triviaDetail: String) -> String {
-        
-        if (triviaDetail.contains("&quot;")){
-            return triviaDetail.replacingOccurrences(of: "&quot;", with: "\u{22}")
-        }
-        if (triviaDetail.contains("&#039;")){
-            return triviaDetail.replacingOccurrences(of: "&#039;", with: "\u{27}")
-        }
-        if (triviaDetail.contains("&eacute;")){
-            return triviaDetail.replacingOccurrences(of: "&eacute;", with: "\u{e9}")
-        }
-        if (triviaDetail.contains("&Idquo")){
-            return triviaDetail.replacingOccurrences(of: "&eacute;", with: "\u{e9}")
-        }
-        if (triviaDetail.contains("&rdquo;")){
-            return triviaDetail.replacingOccurrences(of: "&eacute;", with: "\u{e9}")
-        }
-        if (triviaDetail.contains("&rdquo;")){
-            return triviaDetail.replacingOccurrences(of: "&eacute;", with: "\u{e9}")
-        }
-        else{
-            return triviaDetail
-        }
-        
-    }
-    private func updateToNextQuestion(_ chosenAnswer: String) {
+    private func updateToNextQuestion(_ button: UIButton, _ chosenAnswer: String) {
       if isCorrectAnswer(correctAnswersList, currQuestionIndex, chosenAnswer) {
           numCorrectQuestions += 1
+          button.tintColor = UIColor(red: 0, green: 0.3765, blue: 0.0039, alpha: 1.0)
+        
       }
+        else{
+            button.tintColor = UIColor(red: 0.3765, green: 0, blue: 0, alpha: 1.0)
+            }
     currQuestionIndex += 1
-    guard currQuestionIndex < questionAmount else {
-      showFinalScore()
-      return
-    }
-    updateQuestion(withQuestionIndex: currQuestionIndex)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            guard self.currQuestionIndex < self.questionAmount else {
+                self.showFinalScore()
+                return
+            }
+            self.updateQuestion(withQuestionIndex: self.currQuestionIndex)
+        }
   }
   
     private func isCorrectAnswer(_ correctAnswersList: [String], _ currQuestionIndex: Int, _ chosenAnswer: String) -> Bool {
-        print("Chosen answer: \(chosenAnswer), Correct answer: \(correctAnswersList[currQuestionIndex])")
-        print("correctAnswers full: ", correctAnswersList)
         if ( correctAnswersList.count - 1 >= currQuestionIndex) {
             return chosenAnswer == correctAnswersList[currQuestionIndex]
         }
@@ -116,7 +104,6 @@ class TriviaViewController: UIViewController {
             return false
         }
   }
-
   
   private func showFinalScore() {
     let alertController = UIAlertController(title: "Game over!",
@@ -143,31 +130,34 @@ class TriviaViewController: UIViewController {
   }
   
   @IBAction func didTapAnswerButton0( _ sender: UIButton) {
-    updateToNextQuestion(sender.titleLabel?.text ?? "")
+    updateToNextQuestion(answerButton0, sender.titleLabel?.text ?? "")
   }
   
   @IBAction func didTapAnswerButton1(_ sender: UIButton) {
-    updateToNextQuestion(sender.titleLabel?.text ?? "")
+    updateToNextQuestion(answerButton1, sender.titleLabel?.text ?? "")
   }
   
   @IBAction func didTapAnswerButton2(_ sender: UIButton) {
-    updateToNextQuestion(sender.titleLabel?.text ?? "")
+    updateToNextQuestion(answerButton2,
+                         sender.titleLabel?.text ?? "")
   }
   
   @IBAction func didTapAnswerButton3(_ sender: UIButton) {
-      updateToNextQuestion(sender.titleLabel?.text ?? "")
+      updateToNextQuestion(answerButton3,
+                           sender.titleLabel?.text ?? "")
   }
     
-     
 }
-// https://stackoverflow.com/questions/25607247/how-do-i-decode-html-entities-in-swift
-extension String {
-    var htmlDecoded: String {
-        let decoded = try? NSAttributedString(data: Data(utf8), options: [
-            .documentType: NSAttributedString.DocumentType.html,
-            .characterEncoding: String.Encoding.utf8.rawValue
-        ], documentAttributes: nil).string
 
-        return decoded ?? self
-    }
-}
+ // Code to decode html entity codes came from AamirR and Peter Mortensen from stackoverflow Link to related question and answer https://stackoverflow.com/questions/25607247/how-do-i-decode-html-entities-in-swift
+ extension String {
+ var htmlDecoded: String {
+ let decoded = try? NSAttributedString(data: Data(utf8), options: [
+ .documentType: NSAttributedString.DocumentType.html,
+ .characterEncoding: String.Encoding.utf8.rawValue
+ ], documentAttributes: nil).string
+ 
+ return decoded ?? self
+ }
+ }
+ 
