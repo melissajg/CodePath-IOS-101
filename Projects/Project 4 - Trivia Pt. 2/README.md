@@ -27,6 +27,4 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<img src='https://i.imgur.com/DOCiSIG.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-
+<img src='https://i.imgur.com/kSPFxnI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
