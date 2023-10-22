@@ -1,37 +1,30 @@
-# Project 5 - Tumblr
+# Project 6 - Tumblr Feed & Detail
 
 Submitted by: Melissa Gaines
 
-Tumblr is an app that uses an API to display blog posts.
+Tumblr Feed & Detail is an app that display videos 
 
-Time spent: 5 hours spent in total
+Time spent: 8 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [X] App has a configured table view and table view call
-- [X] App populates the table view with data fetched from an API
+- [X] Setup navigation to the Detail Screen
+- [X] Created the Detail View UI
+- [X] Add the ability to pass data to the Detail View Controller
+- [X] Made personal finishing touches to the UI
 
-
-The following **optional** features are implemented:
-
-- [ ] App fetches posts from a different Tumblr blog
-- [ ] App has a refresh control to update the table view
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented features:
+Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/hPK4nUI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/kSPFxnI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I expierence osme challenge dealing with the scrollview. It would something scroll too far out of range or not enough.
 
 ## License
 
