@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-
+https://i.imgur.com/hPK4nUI.gif
 <img src='https://i.imgur.com/hPK4nUI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
