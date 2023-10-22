@@ -20,7 +20,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/y9X6N1K.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/kSPFxnI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
