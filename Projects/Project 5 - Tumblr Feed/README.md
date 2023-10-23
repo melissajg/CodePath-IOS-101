@@ -25,10 +25,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented features:
-https://i.imgur.com/hPK4nUI.gif
-<img src='https://i.imgur.com/hPK4nUI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+![](https://github.com/melissajg/IOS101/blob/main/Projects/Project%205%20-%20Tumblr%20Feed/Demo.gif)
 ## Notes
 
 Describe any challenges encountered while building the app.
