@@ -20,7 +20,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/kSPFxnI.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![](https://github.com/melissajg/IOS101/blob/main/Projects/Project%206%20-%20Tumblr%20Feed%20%26%20Details/Demo.gif)
 
 ## Notes
 
