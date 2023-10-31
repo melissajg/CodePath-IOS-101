@@ -22,7 +22,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented features:
 
-![]([https://github.com/melissajg/CodePath-IOS-101/blob/main/Projects/Project%207%20-%20Task/Demo.gif])
+![](https://github.com/melissajg/CodePath-IOS-101/blob/main/Projects/Project%207%20-%20Task/Demo.gif)
 
 
 ## License
