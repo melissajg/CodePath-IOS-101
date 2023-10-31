@@ -85,13 +85,7 @@ extension Task {
 
         // TODO: Save the current task
         var existingTasks = Task.getTasks()
-        var taskLocation = existingTasks.firstIndex(where: { $0.id == self.id })
-        if let index = taskLocation {
-            existingTasks.remove(at: index)
-            existingTasks.insert(self, at: index)
-        } else {
-            existingTasks.append(self)
-        }
+        existingTasks.append(self)
         Task.save(existingTasks)
         
         
