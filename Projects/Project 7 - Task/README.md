@@ -25,6 +25,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
+Here's a walkthrough of implemented features:
+
+![](https://github.com/melissajg/IOS101/blob/main/Projects/Project%206%20-%20Tumblr%20Feed%20%26%20Details/Demo.gif)
 
 
 ## License
