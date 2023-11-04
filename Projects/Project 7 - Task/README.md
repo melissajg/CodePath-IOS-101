@@ -18,16 +18,11 @@ The following **required** functionality is completed:
 - [x] Users have a calendar view via navigation controller that displays tasks	
 
 
-The following **additional** features are implemented:
-
-- [x] Tasks can be toggled completed
-- [x] User can edit tasks by tapping on the task in the feed view
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
 
-![]([https://github.com/melissajg/IOS101/blob/main/Projects/Project%206%20-%20Tumblr%20Feed%20%26%20Details/Demo.gif](https://github.com/melissajg/CodePath-IOS-101/blob/main/Projects/Project%207%20-%20Task/Demo.gif))
+![](https://github.com/melissajg/CodePath-IOS-101/blob/main/Projects/Project%207%20-%20Task/Demo.gif)
 
 
 ## License
